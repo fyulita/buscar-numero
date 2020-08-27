@@ -19,7 +19,13 @@ export class Card extends Component {
     }
     
     render() {
-        let body = <button className="btn btn-primary" onClick={this.handleClick}>Revelar</button>;
+        let body = '';
+        if (this.props.number === this.props.goal) {
+            body = <button className="btn btn-primary" onClick={this.handleClick} data-toggle="modal" data-target="#winModal">Revelar</button>;
+        } else {
+            body = <button className="btn btn-primary" onClick={this.handleClick}>Revelar</button>;
+        }
+
         let card_color = 'bg-info';
         if (this.state.show) {
             body = <h4 className="text-center font-weight-bold">{this.props.number}</h4>;

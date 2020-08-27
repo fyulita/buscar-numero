@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import { Navbar } from './Navbar';
 import { Cards } from './Cards';
-import { Alert } from './Alert';
+import { End } from './End';
 
 
 export class Game extends Component {
@@ -11,12 +11,14 @@ export class Game extends Component {
         this.state = {
             array: [],
             hidden: 0,
-            guesses: 1,
+            guesses: 0,
             end: false
         }
         this.makeArray = this.makeArray.bind(this);
         this.incrementGuesses = this.incrementGuesses.bind(this);
         this.checkEnd = this.checkEnd.bind(this);
+
+        this.endModal = null;
     }
 
     // Devuelve un array de 100 numeros al azar entre 1 1000 ordenados de menor a mayor.
@@ -93,6 +95,10 @@ export class Game extends Component {
     UNSAFE_componentWillMount() {
         this.makeArray();
     }
+
+    componentDidMount(){
+        window.scrollTo(0, 0)
+    }
     
     render() {
         return (
@@ -100,6 +106,8 @@ export class Game extends Component {
                 <Navbar/>
 
                 <br/>
+
+                <End guesses={this.state.guesses} show={this.state.end}/>
 
                 <div className="container-fluid">
                     <div className="row justify-content-center">
