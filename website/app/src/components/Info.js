@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import { Navbar } from './Navbar';
+import Footer from './Footer';
 
 
 export class Info extends Component {
@@ -22,7 +23,7 @@ export class Info extends Component {
                         <div className="col">
                             <div className="card">
                                 <div className="card-header text-center">
-                                    <h2>Instrucciones</h2>
+                                    <h2 id="test">Instrucciones</h2>
                                 </div>
                                 <div className="card-body">
                                     <h4 className="text-justify">
@@ -45,12 +46,9 @@ export class Info extends Component {
                     </div>
                 </div>
 
-                <footer className="fixed-bottom">
-                    <h4>
-                        Esta página web la creé como demostración interactiva de los contenidos de <a href="">este video</a>. Te recomiendo que lo mires para entender
-                        mejor por qué existe esta página. Si te gusta lo que hago, no dudes en <a href="https://www.youtube.com/channel/UCoa_OZFLlLrrHG8tGeLPm6A?sub_confirmation=1">suscribirte</a>.
-                    </h4>
-                </footer>
+                <br/>
+
+                <Footer/>
             </Fragment>
         )
     }

@@ -25,9 +25,10 @@ export class Cards extends Component {
                             <div className="row justify-content-center" key={`row:${index}`}>
                                 {array.map((num, idx) => {
                                     return (
-                                        <div className="col-1" key={`row:${index} col:${idx}`}>
+                                        <div className="col-lg-1 col-md-4 col-sm-6 col-xs-9" key={`row:${index} col:${idx}`}>
                                             <Card number={num} id={index * 10 + idx + 1} goal={hidden}
                                             incrementGuesses={this.props.incrementGuesses} checkEnd={this.props.checkEnd}/>
+                                            <br/>
                                         </div>
                                     )
                                 })}
