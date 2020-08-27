@@ -1,0 +1,33 @@
+{
+  "name": "algos-busqueda-orden",
+  "version": "1.0.0",
+  "description": "Esta es una página web simple donde se puede jugar un juego que consiste en buscar un número escondido. El propósito de la página es poder interactuar y aprender sobre algoritmos de búsqueda.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch ./website/app/src/index.js --output ./website/app/static/app/main.js",
+    "build": "webpack --mode production ./website/app/src/index.js --output ./website/app/static/app/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fyulita/buscar-numero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fyulita/buscar-numero/issues"
+  },
+  "homepage": "https://github.com/fyulita/buscar-numero#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
