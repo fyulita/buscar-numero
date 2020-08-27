@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { Navbar } from './Navbar';
 import { Cards } from './Cards';
 import { End } from './End';
+import { Footer } from './Footer';
 
 
 export class Game extends Component {
@@ -119,12 +120,9 @@ export class Game extends Component {
                     <Cards array={this.state.array} hidden={this.state.hidden} incrementGuesses={this.incrementGuesses} checkEnd={this.checkEnd}/>
                 </div>
 
-                <footer className="sticky-bottom">
-                    <h4>
-                        Esta página web la creé como demostración interactiva de los contenidos de <a href="">este video</a>. Te recomiendo que lo mires para entender
-                        mejor por qué existe esta página. Si te gusta lo que hago, no dudes en <a href="https://www.youtube.com/channel/UCoa_OZFLlLrrHG8tGeLPm6A?sub_confirmation=1">suscribirte</a>.
-                    </h4>
-                </footer>
+                <br/>
+
+                <Footer/>
             </Fragment>
         )
     }
