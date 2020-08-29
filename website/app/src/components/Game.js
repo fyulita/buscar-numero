@@ -13,9 +13,11 @@ export class Game extends Component {
             array: [],
             hidden: 0,
             guesses: 0,
-            end: false
+            end: false,
+            binary_search: 0
         }
         this.makeArray = this.makeArray.bind(this);
+        this.binarySearch = this.binarySearch.bind(this);
         this.incrementGuesses = this.incrementGuesses.bind(this);
         this.checkEnd = this.checkEnd.bind(this);
 
@@ -77,6 +79,30 @@ export class Game extends Component {
         })
     }
 
+    binarySearch(s, x) {
+        let guesses = 0;
+
+        if (s[0] === x || s[s.length - 1] === x) {
+            guesses++;
+        } else {
+            let low = 0;
+            let high = s.length - 1;
+            while (low + 1 < high && s[low] != x) {
+                let mid = Math.floor((low + high) / 2);
+                if (s[mid] <= x) {
+                    low = mid;
+                } else {
+                    high = mid;
+                }
+                guesses++;
+            }
+        }
+
+        this.setState({
+            binary_search: guesses
+        })
+    }
+
     incrementGuesses() {
         let guesses = this.state.guesses;
         guesses++;
@@ -98,7 +124,8 @@ export class Game extends Component {
     }
 
     componentDidMount(){
-        window.scrollTo(0, 0)
+        this.binarySearch(this.state.array, this.state.hidden);
+        window.scrollTo(0, 0);
     }
     
     render() {
@@ -108,7 +135,7 @@ export class Game extends Component {
 
                 <br/>
 
-                <End guesses={this.state.guesses} show={this.state.end}/>
+                <End guesses={this.state.guesses} show={this.state.end} computer_guesses={this.state.binary_search}/>
 
                 <div className="container-fluid">
                     <div className="row justify-content-center">

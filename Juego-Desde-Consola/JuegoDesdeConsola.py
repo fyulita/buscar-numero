@@ -1,12 +1,11 @@
 import random
-from Ordenamiento import selectionSort
 
 
 # Hacemos la lista y la ordenamos.
 lista_full = [*range(1, 1001)]
 random.shuffle(lista_full)
 lista = lista_full[:100]
-selectionSort(lista)
+lista.sort()
 
 # Elegimos algún número de la lista.
 num = lista[random.randint(1, 100)]
@@ -16,6 +15,22 @@ elif num < 100:
     num_s = f"0{num}"
 else:
     num_s = str(num)
+
+# Nos fijamos cuanto tarda búsqueda binaria en encontrarlo.
+intentos_compu = 0
+if (lista[0] == num or lista[-1] == num):
+    intentos_compu += 1
+else:
+    low = 0
+    high = len(lista) - 1
+    while (low + 1 < high and lista[low] != num):
+        mid = int((low + high) / 2)
+        if (lista[mid] == num):
+            low = mid
+        else:
+            high = mid
+        intentos_compu += 1
+
 
 # Escondemos los números de la lista en "cartas".
 lista_oculta = []
@@ -78,10 +93,12 @@ while True:
 
         mostrarLista(lista_oculta)
 
-        if turnos == 1:
-            print("¡Ganaste! Te llevó 1 turno")
-        else:
-            print(f"¡Ganaste! Te llevó {turnos} turnos")
+        print(f"""
+        ¡Ganaste! Te llevó {turnos} {'intento' if turnos == 1 else 'intentos'}. A la compu le llevó {intentos_compu}
+        {'intento' if intentos_compu == 1 else 'intentos'} usando el algoritmo de búsqueda binaria.
+        {'¡Sos mejor que la compu!' if turnos < intentos_compu else '¡Seguí intentando para ganarle!'}
+        """)
+
         break
 
     turnos += 1

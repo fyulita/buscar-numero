@@ -17,8 +17,9 @@ export class End extends Component {
                             </div>
                             <div className="modal-body">
                                 <p className="text-justify">
-                                    Te llevó {this.props.guesses} {this.props.guesses === 1 ? 'intento' : 'intentos'}. A la computadora le llevaría entre
-                                    7 y 9 intentos en promedio si usa el algoritmo de búsqueda binaria. {this.props.guesses < 7 ? '¡Sos mejor que la compu!' :
+                                    Te llevó {this.props.guesses} {this.props.guesses === 1 ? 'intento' : 'intentos'}. A la computadora le 
+                                    llevó {this.props.computer_guesses} {this.props.computer_guesses === 1 ? 'intento' : 'intentos'} usando el 
+                                    algoritmo de búsqueda binaria. {this.props.guesses < this.props.computer_guesses ? '¡Sos mejor que la compu!' :
                                     '¡Seguí intentando para ganarle!'}
                                 </p>
                             </div>
